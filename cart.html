@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link rel="stylesheet" href="1.css">
-    
+
     <style>
         /* Styling the success message */
+        
         .success-message {
             display: none;
             margin-top: 20px;
@@ -21,6 +23,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- order -->
@@ -35,7 +38,7 @@
             </div>
 
             <!-- Modified form action to point to order.php -->
-            <form id="orderForm" action="/submit-order" method="POST">
+            <form id="orderForm" action="#" method="POST" onsubmit="showSuccessMessage(event)">
                 <div class="inputBox">
                     <input type="text" name="first_name" placeholder="First name" required>
                     <input type="text" name="last_name" placeholder="Last name" required>
@@ -53,19 +56,23 @@
 
                 <textarea name="address" placeholder="Your address" id="" cols="30" rows="10" required></textarea>
                 <input type="submit" value="Order Now" class="btn">
-
-                <!-- Success message -->
-                <div id="successMessage" class="success-message">
-                    Your order is placed successfully!
-                </div>
+                <script>
+                    function showSuccessMessage(event) {
+                        event.preventDefault(); // Prevent form from submitting normally
+                        alert("Your order is placed successfully!"); // Show success message as a popup
+                        // Uncomment the following line to actually submit the form if needed
+                        // document.getElementById("orderForm").submit();
+                    }
+                </script>
             </form>
-        
-              
+
+
 
         </div>
-        
+
     </section>
     <!-- order end -->
 
 </body>
+
 </html>
